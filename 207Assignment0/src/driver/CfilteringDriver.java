@@ -1,8 +1,8 @@
 // **********************************************************
 // Assignment0:
-// CDF user_name:
-// UT Student #:
-// Author:
+// CDF user_name: c4namyun
+// UT Student #: 999186474
+// Author: Yunho Nam
 //
 //
 // Honor Code: I pledge that this program represents my own
@@ -58,15 +58,25 @@ public class CfilteringDriver {
       // read each line of movie ratings and populate the
       // userMovieMatrix
       String row;
+      // keep track of row being used to populate the USER_MOVIE MATRIX
+      int rowtracker = 0;
       while ((row = br.readLine()) != null) {
         // allRatings is a list of all String numbers on one row
         String allRatings[] = row.split(" ");
+        // keep track of colum being used and repeat for each row
+        int coltracker = 0;
         for (String singleRating : allRatings) {
           // make the String number into an integer
           // populate userMovieMatrix
           System.out.println("For debugging:Rating is :" + singleRating);
           // TODO: COMPLETE THIS I.E. POPULATE THE USER_MOVIE MATRIX
+          int rate = Integer.parseInt(singleRating);
+          cfObject.populateUserMovieMatrix(rowtracker, coltracker, rate);
+          // add 1 every time a column is used to move onto next column
+          coltracker++;
         }
+        // add 1 every time a row is used to move onto next row
+        rowtracker++;
       }
       // close the file
       System.out.println("For debugging:Finished reading file");
@@ -81,6 +91,10 @@ public class CfilteringDriver {
       // TODO:3.) PRINT OUT THE MOST SIMILAR PAIRS OF USER AND THE MOST
       // DISSIMILAR
       // PAIR OF USERS.
+      // calculate the similarity score between users
+      cfObject.calculateSimilarityScore(numberOfUsers, numberOfMovies);
+      // test the calculateSimilarityScore method
+      System.out.println(cfObject.print_stuff());
     } catch (FileNotFoundException e) {
       System.err.println("Do you have the input file in the root folder "
           + "of your project?");
