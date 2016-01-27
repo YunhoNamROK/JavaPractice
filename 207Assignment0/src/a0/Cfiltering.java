@@ -13,6 +13,7 @@
 // *********************************************************
 package a0;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 
 public class Cfiltering {
@@ -92,27 +93,32 @@ public class Cfiltering {
     int uuColumnNumber = userUserMatrix[0].length;
     // iterate row of userUserMatrix
     for (int e = 0; e < uuRowNumber; e++) {
-      // keep track of which row to iterate for next row of userMovieMatrix
-      // for a new row on userUserMatrix, it is reset to 0
+      // keep track of which row to iterate for next row of userMovieMatrix for
+      // a new row on userUserMatrix, it is reset to 0
       int temprow = 0;
       // iterate column of userUserMatrix
       for (int b = 0; b < uuColumnNumber; b++) {
         // iterate column of userMovieMatrix
         for (int i = 0; i < columnNumber; i++) {
-          // algorithm for adding the result of squaring the subtraction of
-          // a number from one row to another number of another or same row
-          // from the same column;
-          // added to userUserMatrix[e][i], which is the current interation
-          // of the above two for loop iterations
+          // algorithm for adding the result of squaring the subtraction of a
+          // number from one row to another number of another or same row from
+          // the same column; added to userUserMatrix[e][i], which is the
+          // current interation of the above two for loop iterations
           userUserMatrix[e][b] += Math
               .pow((userMovieMatrix[e][i] - userMovieMatrix[temprow][i]), 2);
         }
         // indicate the finished iteration of one row of userMovieMatrix
         temprow += 1;
-        // complete the euclidean equation and acquire the number to
-        // indicate how similar the users are
+        // complete the euclidean equation and acquire the similarity score
         userUserMatrix[e][b] =
             (float) (1 / (1 + (Math.sqrt(userUserMatrix[e][b]))));
+        // assign a variable with the similarity score rounded to 4 decimmal
+        // points
+        float roundMatrix =
+            (float) ((Math.round(userUserMatrix[e][b] * 10000.0000))
+                / 10000.0000d);
+        // reassign roundMatrix to the unit in userUserMatrix
+        userUserMatrix[e][b] = roundMatrix;
       }
     }
   }
@@ -128,11 +134,37 @@ public class Cfiltering {
    * 
    * @param COMPLETE THIS IF NEEDED
    * @param COMPLETE THIS IF NEEDED
-   * @return COMPLETE THIS IF NEEDED
+   * @return return a string representation of userUserMatrix
    */
 
-  public void printUserUserMatrix() {
-
+  public String printUserUserMatrix() {
+    // row number of the userUserMatrix
+    int rowNumber = userUserMatrix.length;
+    // column number of the userUserMatrix
+    int columnNumber = userUserMatrix[0].length;
+    // this is a string that represent the userUserMatrix
+    String stringArray = "";
+    // this is a 1d array that represent a row in userUserMatrix
+    String[] tempArray = new String[rowNumber];
+    // iterate row of userUserMatrix
+    for (int e = 0; e < rowNumber; e++) {
+      // iterate column of userUserMatrix
+      for (int i = 0; i < columnNumber; i++) {
+        // create a new DecimalFormat object
+        DecimalFormat Decimalnum = new DecimalFormat("0.0000");
+        // assign each item of tempArray with formatted item of current row of
+        // userUserMatrix
+        tempArray[i] = Decimalnum.format(userUserMatrix[e][i]);
+      }
+      // add string conversion of tempArray for current row of userUserMatrix
+      // with \newline to print the next row on next line
+      stringArray += Arrays.deepToString(tempArray) + "\n";
+      // clear the tempArray so it can be used for the next row of
+      // userUserMatrix
+      tempArray = new String[rowNumber];
+    }
+    // return the final string representation of userUserMatrix
+    return "userUserMatrix is:\n\n\n" + stringArray;
   }
 
   /*
@@ -166,20 +198,6 @@ public class Cfiltering {
    */
   public void findAndprintMostDissimilarPairOfUsers() {
 
-  }
-
-  /**
-   * This function is used to test the calculateSimilarityScore method to test
-   * if the method can accurately calculate, and place the results in the right
-   * spots of the userUserMatrix
-   * 
-   * @param COMPLETE THIS IF NEEDED
-   * @param COMPLETE THIS IF NEEDED
-   * @return return the entire array of userUserMatrix
-   */
-  public String print_stuff() {
-    // return the entire array of userUserMatrix
-    return Arrays.deepToString(userUserMatrix);
   }
 }
 
