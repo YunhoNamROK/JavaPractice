@@ -1,8 +1,8 @@
 // **********************************************************
 // Assignment0:
-// CDF user_name:
-// UT Student #:
-// Author:
+// CDF user_name: c4namyun
+// UT Student #: 999186474
+// Author: Yunho Nam
 //
 //
 // Honor Code: I pledge that this program represents my own
@@ -12,6 +12,8 @@
 // sheet of CSC 207 and understand the consequences.
 // *********************************************************
 package a0;
+
+import java.util.Arrays;
 
 public class Cfiltering {
   // this is a 2d matrix i.e. user*movie
@@ -43,7 +45,10 @@ public class Cfiltering {
    * @param numberOfMovies Determines size of matrix variables.
    */
   public Cfiltering(int numberOfUsers, int numberOfMovies) {
-
+    // this is 2d matrix of size users*movies
+    userMovieMatrix = new int[numberOfUsers][numberOfMovies];
+    // this is 2d matrix of size users*users
+    userUserMatrix = new float[numberOfUsers][numberOfUsers];
   }
 
   /**
@@ -58,7 +63,7 @@ public class Cfiltering {
    */
   public void populateUserMovieMatrix(int rowNumber, int columnNumber,
       int ratingValue) {
-
+    // populate the userMovieMatrix with ratingValue
     userMovieMatrix[rowNumber][columnNumber] = ratingValue;
   }
 
@@ -76,12 +81,40 @@ public class Cfiltering {
    * where 1 is perfect/identical similarity. Stores these values in the
    * userUserMatrix.
    * 
-   * @param COMPLETE THIS IF NEEDED
-   * @param COMPLETE THIS IF NEEDED
+   * @param rowNumber The row numer of the userMovieMatrix
+   * @param columnNumber The column number of the userMovieMatrix
    * @return COMPLETE THIS IF NEEDED
    */
-  public void calculateSimilarityScore() {
-
+  public void calculateSimilarityScore(int rowNumber, int columnNumber) {
+    // row number of the userUserMatrix
+    int uuRowNumber = userUserMatrix.length;
+    // column number of the userUserMatrix
+    int uuColumnNumber = userUserMatrix[0].length;
+    // iterate row of userUserMatrix
+    for (int e = 0; e < uuRowNumber; e++) {
+      // keep track of which row to iterate for next row of userMovieMatrix
+      // for a new row on userUserMatrix, it is reset to 0
+      int temprow = 0;
+      // iterate column of userUserMatrix
+      for (int b = 0; b < uuColumnNumber; b++) {
+        // iterate column of userMovieMatrix
+        for (int i = 0; i < columnNumber; i++) {
+          // algorithm for adding the result of squaring the subtraction of
+          // a number from one row to another number of another or same row
+          // from the same column;
+          // added to userUserMatrix[e][i], which is the current interation
+          // of the above two for loop iterations
+          userUserMatrix[e][b] += Math
+              .pow((userMovieMatrix[e][i] - userMovieMatrix[temprow][i]), 2);
+        }
+        // indicate the finished iteration of one row of userMovieMatrix
+        temprow += 1;
+        // complete the euclidean equation and acquire the number to
+        // indicate how similar the users are
+        userUserMatrix[e][b] =
+            (float) (1 / (1 + (Math.sqrt(userUserMatrix[e][b]))));
+      }
+    }
   }
 
   /*
@@ -134,4 +167,19 @@ public class Cfiltering {
   public void findAndprintMostDissimilarPairOfUsers() {
 
   }
+
+  /**
+   * This function is used to test the calculateSimilarityScore method to test
+   * if the method can accurately calculate, and place the results in the right
+   * spots of the userUserMatrix
+   * 
+   * @param COMPLETE THIS IF NEEDED
+   * @param COMPLETE THIS IF NEEDED
+   * @return return the entire array of userUserMatrix
+   */
+  public String print_stuff() {
+    // return the entire array of userUserMatrix
+    return Arrays.deepToString(userUserMatrix);
+  }
 }
+
