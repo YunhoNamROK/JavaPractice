@@ -32,10 +32,6 @@ public class Cfiltering {
     userUserMatrix = new float[1][1];
   }
 
-  /*
-   * TODO:COMPLETE THIS I.E. APPROPRIATELY CREATE THE userMovieMatrix AND
-   * userUserMatrix WITH CORRECT DIMENSIONS.
-   */
   /**
    * Constructs an object which contains two 2d matrices, one of size
    * users*movies which will store integer movie ratings and one of size
@@ -68,14 +64,6 @@ public class Cfiltering {
     userMovieMatrix[rowNumber][columnNumber] = ratingValue;
   }
 
-  /*
-   * TODO:COMPLETE THIS YOU ARE FREE TO CHANGE THE FUNCTION SIGNATURE BUT DO NOT
-   * CHANGE THE FUNCTION NAME AND DO NOT MAKE THIS FUNCTION STATIC. Add/remove
-   * 
-   * @param AND
-   * 
-   * @return as required below.
-   */
   /**
    * Determines how similar each pair of users is based on their ratings. This
    * similarity value is represented with with a float value between 0 and 1,
@@ -84,7 +72,6 @@ public class Cfiltering {
    * 
    * @param rowNumber The row numer of the userMovieMatrix
    * @param columnNumber The column number of the userMovieMatrix
-   * @return COMPLETE THIS IF NEEDED
    */
   public void calculateSimilarityScore(int rowNumber, int columnNumber) {
     // row number of the userUserMatrix
@@ -93,7 +80,7 @@ public class Cfiltering {
     int uuColumnNumber = userUserMatrix[0].length;
     // iterate row of userUserMatrix
     for (int e = 0; e < uuRowNumber; e++) {
-      // keep track of which row to iterate for next row of userMovieMatrix for
+      // keep track of which row to iterate for next row of userMovieMatrix; for
       // a new row on userUserMatrix, it is reset to 0
       int temprow = 0;
       // iterate column of userUserMatrix
@@ -101,13 +88,13 @@ public class Cfiltering {
         // iterate column of userMovieMatrix
         for (int i = 0; i < columnNumber; i++) {
           // algorithm for adding the result of squaring the subtraction of a
-          // number from one row to another number of another or same row from
-          // the same column; added to userUserMatrix[e][i], which is the
+          // number from one row to another number of another row from the same
+          // column, or itself; added to userUserMatrix[e][i], which is the
           // current interation of the above two for loop iterations
           userUserMatrix[e][b] += Math
               .pow((userMovieMatrix[e][i] - userMovieMatrix[temprow][i]), 2);
         }
-        // indicate the finished iteration of one row of userMovieMatrix
+        // indicate the completed iteration of one row of userMovieMatrix
         temprow += 1;
         // complete the euclidean equation and acquire the similarity score
         userUserMatrix[e][b] =
@@ -117,23 +104,17 @@ public class Cfiltering {
         float roundMatrix =
             (float) ((Math.round(userUserMatrix[e][b] * 10000.0000))
                 / 10000.0000d);
-        // reassign roundMatrix to the unit in userUserMatrix
+        // reassign roundMatrix to the currently interation of userUserMatrix
         userUserMatrix[e][b] = roundMatrix;
       }
     }
   }
 
-  /*
-   * TODO:COMPLETE THIS YOU ARE FREE TO CHANGE THE FUNCTION SIGNATURE BUT DO NOT
-   * CHANGE THE FUNCTION NAME AND DO NOT MAKE THIS FUNCTION STATIC
-   */
   /**
    * Prints out the similarity scores of the userUserMatrix, with each row and
    * column representing each/single user and the cell position (i,j)
    * representing the similarity score between user i and user j.
    * 
-   * @param COMPLETE THIS IF NEEDED
-   * @param COMPLETE THIS IF NEEDED
    * @return return a string representation of userUserMatrix
    */
 
@@ -142,7 +123,7 @@ public class Cfiltering {
     int rowNumber = userUserMatrix.length;
     // column number of the userUserMatrix
     int columnNumber = userUserMatrix[0].length;
-    // this is a string that represent the userUserMatrix
+    // this is the string that represent the userUserMatrix
     String stringArray = "";
     // this is a 1d array that represent a row in userUserMatrix
     String[] tempArray = new String[rowNumber];
@@ -164,40 +145,155 @@ public class Cfiltering {
       tempArray = new String[rowNumber];
     }
     // return the final string representation of userUserMatrix
-    return "userUserMatrix is:\n\n\n" + stringArray;
+    return "\n\nuserUserMatrix is:\n" + stringArray;
   }
 
-  /*
-   * TODO:COMPLETE THIS YOU ARE FREE TO CHANGE THE FUNCTION SIGNATURE BUT DO NOT
-   * CHANGE THE FUNCTION NAME AND DO NOT MAKE THIS FUNCTION STATIC
-   */
   /**
    * This function finds and prints the most similar pair of users in the
    * userUserMatrix.
    * 
-   * @param COMPLETE THIS IF NEEDED
-   * @param COMPLETE THIS IF NEEDED
-   * @return COMPLETE THIS IF NEEDED
+   * @return return a string representation of most similar pairs of users
    */
 
-  public void findAndprintMostSimilarPairOfUsers() {
-
+  public String findAndprintMostSimilarPairOfUsers() {
+    // Note: This needs to take into account multiple tests STILL NOT COMPLETE
+    float[] singularScores = userSingularScores();
+    String[] scoreLocations = singularScoreLocations();
+    float max = 0;
+    for (int item = 0; item < singularScores.length; item++) {
+      if (max < singularScores[item]) {
+        max = singularScores[item];
+      }
+    }
+    int index = 0;
+    for (int item = 0; item < singularScores.length; item++) {
+      if (max == singularScores[item]) {
+        break;
+      } else {
+        index += 1;
+      }
+    }
+    String similarScores;
+    String similarLocations = "";
+    if (max == 1) {
+      similarScores = "\nwith similarity score of 1.0000";
+      for (int item = 0; item < scoreLocations.length; item++) {
+        if (scoreLocations[item] != null) {
+          similarLocations += "\nUser" + scoreLocations[item].substring(0, 1)
+              + " and User" + scoreLocations[item].substring(1, 2);
+          if (scoreLocations[item + 1] != null) {
+            similarLocations += ",";
+          }
+        }
+      }
+    } else {
+      String stringMax;
+      DecimalFormat Decimalnum = new DecimalFormat("0.0000");
+      stringMax = Decimalnum.format(max);
+      similarScores = "\nwith similarity score of " + stringMax;
+      similarLocations += "\nUser" + scoreLocations[index].substring(0, 1)
+          + " and User" + scoreLocations[index].substring(1, 2);
+    }
+    return "\nThe most similar pairs of users from above userUserMatrix are:"
+        + similarLocations + similarScores;
   }
 
-  /*
-   * TODO:COMPLETE THIS YOU ARE FREE TO CHANGE THE FUNCTION SIGNATURE BUT DO NOT
-   * CHANGE THE FUNCTION NAME AND DO NOT MAKE THIS FUNCTION STATIC
-   */
   /**
    * This function finds and prints the most dissimilar pair of users in the
    * userUserMatrix.
    * 
-   * @param COMPLETE THIS IF NEEDED
-   * @param COMPLETE THIS IF NEEDED
-   * @return COMPLETE THIS IF NEEDED
+   * @return return a string representation of most dissimilar pairs of users
    */
-  public void findAndprintMostDissimilarPairOfUsers() {
+  public String findAndprintMostDissimilarPairOfUsers() {
+    float[] singularScores = userSingularScores();
+    String[] scoreLocations = singularScoreLocations();
+    float min = 1;
+    for (int item = 0; item < singularScores.length; item++) {
+      if (singularScores[item] != 0 & min > singularScores[item]) {
+        min = singularScores[item];
+      }
+    }
+    int index = 0;
+    for (int item = 0; item < singularScores.length; item++) {
+      if (min == singularScores[item]) {
+        break;
+      } else {
+        index += 1;
+      }
+    }
+    String similarScores;
+    String similarLocations = "";
+    if (min == 1) {
+      similarScores = "\nwith similarity score of 1.0000";
+      for (int item = 0; item < scoreLocations.length; item++) {
+        if (scoreLocations[item] != null) {
+          similarLocations += "\nUser" + scoreLocations[item].substring(0, 1)
+              + " and User" + scoreLocations[item].substring(1, 2);
+          if (scoreLocations[item + 1] != null) {
+            similarLocations += ",";
+          }
+        }
+      }
+    } else {
+      String stringMin;
+      DecimalFormat Decimalnum = new DecimalFormat("0.0000");
+      stringMin = Decimalnum.format(min);
+      similarScores = "\nwith similarity score of " + stringMin;
+      similarLocations += "\nUser" + scoreLocations[index].substring(0, 1)
+          + " and User" + scoreLocations[index].substring(1, 2);
+    }
+    return "\n\nThe most dissimilar pairs of users from above userUserMatrix are:"
+        + similarLocations + similarScores;
+  }
 
+  /**
+   * This HELPER function is used to extract all the scores from userUserMatrix
+   * that aren't comparing a user by itself, or a duplicate of a score between a
+   * pair of users who already have an assigned score.
+   * 
+   * @return return an array of scores without duplicates
+   */
+  public float[] userSingularScores() {
+    int rowNumber = userUserMatrix.length;
+    int columnNumber = userUserMatrix[0].length;
+    int arrNum = rowNumber * rowNumber;
+    float[] arrScores = new float[arrNum];
+    int arrTracker = 0;
+    for (int row = 0; row < rowNumber; row++) {
+      for (int column = 0; column < columnNumber; column++) {
+        if (row < column) {
+          arrScores[arrTracker] = userUserMatrix[row][column];
+          arrTracker += 1;
+        }
+      }
+    }
+    return arrScores;
+  }
+
+  /**
+   * This HELPER function returns an array whose indexes are assigned with
+   * locations of singular scores in userUserMatrix; the index of the array
+   * correspond with the index of the array from the userSingularScores
+   * function.
+   * 
+   * @return return an array of locations of singular scores
+   */
+  public String[] singularScoreLocations() {
+    int rowNumber = userUserMatrix.length;
+    int columnNumber = userUserMatrix[0].length;
+    int arrNum = rowNumber * rowNumber;
+    String[] arrLocations = new String[arrNum];
+    int arrTracker = 0;
+    for (int row = 0; row < rowNumber; row++) {
+      for (int column = 0; column < columnNumber; column++) {
+        if (row < column) {
+          arrLocations[arrTracker] =
+              Integer.toString(row + 1) + Integer.toString(column + 1);
+          arrTracker += 1;
+        }
+      }
+    }
+    return arrLocations;
   }
 }
 
