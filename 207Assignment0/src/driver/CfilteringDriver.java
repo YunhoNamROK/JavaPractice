@@ -66,9 +66,8 @@ public class CfilteringDriver {
         int coltracker = 0;
         for (String singleRating : allRatings) {
           // make the String number into an integer
-          // populate userMovieMatrix
-          // TODO: COMPLETE THIS I.E. POPULATE THE USER_MOVIE MATRIX
           int rate = Integer.parseInt(singleRating);
+          // populate the userMovieMatrix
           cfObject.populateUserMovieMatrix(rowtracker, coltracker, rate);
           // add 1 every time a column is used to move onto next column
           coltracker++;
@@ -78,20 +77,16 @@ public class CfilteringDriver {
       }
       // close the file
       fStream.close();
+      in.close();
 
-      /*
-       * COMPLETE THIS ( I.E. CALL THE APPROPRIATE FUNCTIONS THAT DOES THE
-       * FOLLOWING)
-       */
-      // TODO:1.) CALCULATE THE SIMILARITY SCORE BETWEEN USERS.
-      // TODO:2.) PRINT OUT THE userUserMatrix
-      // TODO:3.) PRINT OUT THE MOST SIMILAR PAIRS OF USER AND THE MOST
-      // DISSIMILAR
-      // PAIR OF USERS.
       // calculate the similarity score between users
       cfObject.calculateSimilarityScore(numberOfUsers, numberOfMovies);
       // print out the userUserMatrix
       System.out.println(cfObject.printUserUserMatrix());
+      // print out the most similar pairs of users
+      System.out.println(cfObject.findAndprintMostSimilarPairOfUsers());
+      // print out the most dissimilar pairs of users
+      System.out.println(cfObject.findAndprintMostDissimilarPairOfUsers());
     } catch (FileNotFoundException e) {
       System.err.println("Do you have the input file in the root folder "
           + "of your project?");
