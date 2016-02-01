@@ -80,8 +80,8 @@ public class Cfiltering {
     int uuColumnNumber = userUserMatrix[0].length;
     // iterate row of userUserMatrix
     for (int e = 0; e < uuRowNumber; e++) {
-      // keep track of which row to iterate for next row of userMovieMatrix; for
-      // a new row on userUserMatrix, it is reset to 0
+      // keep track of which row to iterate for next row of userMovieMatrix;
+      // for a new row on userUserMatrix, it is reset to 0
       int temprow = 0;
       // iterate column of userUserMatrix
       for (int b = 0; b < uuColumnNumber; b++) {
@@ -104,7 +104,7 @@ public class Cfiltering {
         float roundMatrix =
             (float) ((Math.round(userUserMatrix[e][b] * 10000.0000))
                 / 10000.0000d);
-        // reassign roundMatrix to the currently interation of userUserMatrix
+        // reassign roundMatrix to the current interation of userUserMatrix
         userUserMatrix[e][b] = roundMatrix;
       }
     }
@@ -156,41 +156,71 @@ public class Cfiltering {
    */
 
   public String findAndprintMostSimilarPairOfUsers() {
-    // Note: This needs to take into account multiple tests STILL NOT COMPLETE
     float[] singularScores = userSingularScores();
     String[] scoreLocations = singularScoreLocations();
     float max = 0;
+    float[] multipleMax = new float[singularScores.length];
+    int multiCounter = 0;
     for (int item = 0; item < singularScores.length; item++) {
-      if (max < singularScores[item]) {
+      if (singularScores[item] > max) {
         max = singularScores[item];
+      }
+      if (singularScores[item] == 1.0) {
+        multipleMax[multiCounter] = 1.0f;
+        multiCounter++;
+      }
+    }
+    if (max != 1.0) {
+      for (int item = 0; item < singularScores.length; item++) {
+        if (singularScores[item] == max) {
+          multipleMax[multiCounter] = max;
+          multiCounter++;
+        }
       }
     }
     int index = 0;
-    for (int item = 0; item < singularScores.length; item++) {
-      if (max == singularScores[item]) {
-        break;
-      } else {
-        index += 1;
+    int[] multiIndex = new int[multiCounter];
+    int multiIndexCounter = 0;
+    if (multiCounter > 1) {
+      for (int i = 0; i < multiCounter; i++) {
+        index = 0;
+        for (int item = 0; item < singularScores.length; item++) {
+          if (singularScores[item] == max) {
+            singularScores[item] = 1300135;
+            break;
+          } else {
+            index++;
+          }
+        }
+        multiIndex[multiIndexCounter] = index;
+        multiIndexCounter++;
+      }
+    } else {
+      for (int item = 0; item < singularScores.length; item++) {
+        if (max == singularScores[item]) {
+          break;
+        } else {
+          index++;
+        }
       }
     }
     String similarScores;
+    String stringMax;
+    DecimalFormat Decimalnum = new DecimalFormat("0.0000");
+    stringMax = Decimalnum.format(max);
+    similarScores = "\nwith similarity score of " + stringMax;
     String similarLocations = "";
-    if (max == 1) {
-      similarScores = "\nwith similarity score of 1.0000";
-      for (int item = 0; item < scoreLocations.length; item++) {
-        if (scoreLocations[item] != null) {
-          similarLocations += "\nUser" + scoreLocations[item].substring(0, 1)
-              + " and User" + scoreLocations[item].substring(1, 2);
-          if (scoreLocations[item + 1] != null) {
-            similarLocations += ",";
-          }
+    if (multiCounter > 1) {
+      for (int item = 0; item < multiIndex.length; item++) {
+        similarLocations += "\nUser"
+            + scoreLocations[multiIndex[item]].substring(0, 1) + " and User"
+            + scoreLocations[multiIndex[item]].substring(1, 2);
+        --multiCounter;
+        if (multiCounter != 0) {
+          similarLocations += ",";
         }
       }
     } else {
-      String stringMax;
-      DecimalFormat Decimalnum = new DecimalFormat("0.0000");
-      stringMax = Decimalnum.format(max);
-      similarScores = "\nwith similarity score of " + stringMax;
       similarLocations += "\nUser" + scoreLocations[index].substring(0, 1)
           + " and User" + scoreLocations[index].substring(1, 2);
     }
@@ -208,50 +238,76 @@ public class Cfiltering {
     float[] singularScores = userSingularScores();
     String[] scoreLocations = singularScoreLocations();
     float min = 1;
+    float[] multipleMin = new float[singularScores.length];
+    int multiCounter = 0;
     for (int item = 0; item < singularScores.length; item++) {
-      if (singularScores[item] != 0 & min > singularScores[item]) {
+      if (singularScores[item] != 0 & singularScores[item] < min) {
         min = singularScores[item];
       }
     }
-    int index = 0;
     for (int item = 0; item < singularScores.length; item++) {
-      if (min == singularScores[item]) {
-        break;
-      } else {
-        index += 1;
+      if (singularScores[item] == min) {
+        multipleMin[multiCounter] = min;
+        multiCounter++;
       }
     }
-    String similarScores;
-    String similarLocations = "";
-    if (min == 1) {
-      similarScores = "\nwith similarity score of 1.0000";
-      for (int item = 0; item < scoreLocations.length; item++) {
-        if (scoreLocations[item] != null) {
-          similarLocations += "\nUser" + scoreLocations[item].substring(0, 1)
-              + " and User" + scoreLocations[item].substring(1, 2);
-          if (scoreLocations[item + 1] != null) {
-            similarLocations += ",";
+    int index = 0;
+    int[] multiIndex = new int[multiCounter];
+    int multiIndexCounter = 0;
+    if (multiCounter > 1) {
+      for (int i = 0; i < multiCounter; i++) {
+        index = 0;
+        for (int item = 0; item < singularScores.length; item++) {
+          if (singularScores[item] == min) {
+            singularScores[item] = 1300135;
+            break;
+          } else {
+            index++;
           }
+        }
+        multiIndex[multiIndexCounter] = index;
+        multiIndexCounter++;
+      }
+    } else {
+      for (int item = 0; item < singularScores.length; item++) {
+        if (min == singularScores[item]) {
+          break;
+        } else {
+          index++;
+        }
+      }
+    }
+    String dissimilarScores;
+    String stringMin;
+    DecimalFormat Decimalnum = new DecimalFormat("0.0000");
+    stringMin = Decimalnum.format(min);
+    dissimilarScores = "\nwith similarity score of " + stringMin;
+    String dissimilarLocations = "";
+    if (multiCounter > 1) {
+      for (int item = 0; item < multiIndex.length; item++) {
+        dissimilarLocations += "\nUser"
+            + scoreLocations[multiIndex[item]].substring(0, 1) + " and User"
+            + scoreLocations[multiIndex[item]].substring(1, 2);
+        --multiCounter;
+        if (multiCounter != 0) {
+          dissimilarLocations += ",";
         }
       }
     } else {
-      String stringMin;
-      DecimalFormat Decimalnum = new DecimalFormat("0.0000");
-      stringMin = Decimalnum.format(min);
-      similarScores = "\nwith similarity score of " + stringMin;
-      similarLocations += "\nUser" + scoreLocations[index].substring(0, 1)
+      dissimilarLocations += "\nUser" + scoreLocations[index].substring(0, 1)
           + " and User" + scoreLocations[index].substring(1, 2);
     }
-    return "\n\nThe most dissimilar pairs of users from above userUserMatrix are:"
-        + similarLocations + similarScores;
+    return "\n\n"
+        + "The most dissimilar pairs of users from above userUserMatrix are:"
+        + dissimilarLocations + dissimilarScores;
   }
 
   /**
    * This HELPER function is used to extract all the scores from userUserMatrix
-   * that aren't comparing a user by itself, or a duplicate of a score between a
+   * that aren't comparing a user by itself, or a duplicate of a score between
    * pair of users who already have an assigned score.
    * 
-   * @return return an array of scores without duplicates
+   * @return return an array of scores without duplicates or self scores
    */
   public float[] userSingularScores() {
     int rowNumber = userUserMatrix.length;
@@ -296,4 +352,3 @@ public class Cfiltering {
     return arrLocations;
   }
 }
-
