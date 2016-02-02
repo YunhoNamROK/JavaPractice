@@ -80,9 +80,9 @@ public class Cfiltering {
     int uuColumnNumber = userUserMatrix[0].length;
     // iterate row of userUserMatrix
     for (int e = 0; e < uuRowNumber; e++) {
-      // keep track of which row to iterate for next row of userMovieMatrix;
-      // for a new row on userUserMatrix, it is reset to 0
-      int temprow = 0;
+      // keep track of which row to iterate in the userMovieMatrix;
+      // for ever new row on userUserMatrix, it is reset to 0
+      int rowTracker = 0;
       // iterate column of userUserMatrix
       for (int b = 0; b < uuColumnNumber; b++) {
         // iterate column of userMovieMatrix
@@ -92,10 +92,10 @@ public class Cfiltering {
           // column, or itself; added to userUserMatrix[e][i], which is the
           // current interation of the above two for loop iterations
           userUserMatrix[e][b] += Math
-              .pow((userMovieMatrix[e][i] - userMovieMatrix[temprow][i]), 2);
+              .pow((userMovieMatrix[e][i] - userMovieMatrix[rowTracker][i]), 2);
         }
         // indicate the completed iteration of one row of userMovieMatrix
-        temprow += 1;
+        rowTracker += 1;
         // complete the euclidean equation and acquire the similarity score
         userUserMatrix[e][b] =
             (float) (1 / (1 + (Math.sqrt(userUserMatrix[e][b]))));
@@ -123,7 +123,7 @@ public class Cfiltering {
     int rowNumber = userUserMatrix.length;
     // column number of the userUserMatrix
     int columnNumber = userUserMatrix[0].length;
-    // this is the string that represent the userUserMatrix
+    // this is the string that represents the userUserMatrix
     String stringArray = "";
     // this is a 1d array that represent a row in userUserMatrix
     String[] tempArray = new String[rowNumber];
@@ -164,8 +164,8 @@ public class Cfiltering {
     float max = 0;
     // array to store multiples of maximum score
     float[] multipleMax = new float[singularScores.length];
-    // keep count of multipleMax index
-    int multiCounter = 0;
+    // keep track of multipleMax index
+    int multiTracker = 0;
     // iterate singularScores array
     for (int item = 0; item < singularScores.length; item++) {
       // if the current item of singularScores is larger than max
@@ -176,9 +176,9 @@ public class Cfiltering {
       // if current item is maximum possible score 1.0
       if (singularScores[item] == 1.0) {
         // add 1.0 to first empty index of multipleMax
-        multipleMax[multiCounter] = 1.0f;
+        multipleMax[multiTracker] = 1.0f;
         // pass the index onto the next one in multipleMax
-        multiCounter++;
+        multiTracker++;
       }
     }
     // if maximum score is not 1.0
@@ -188,22 +188,22 @@ public class Cfiltering {
         // if a maximum score is a current item of singularScores
         if (singularScores[item] == max) {
           // the maximum score is added to first empty index of multipleMax
-          multipleMax[multiCounter] = max;
+          multipleMax[multiTracker] = max;
           // pass the index onto the next one in multipleMax
-          multiCounter++;
+          multiTracker++;
         }
       }
     }
     // index of maximum score in singularScores
     int index = 0;
     // array that stores multiple index in cases of multiple maximum scores
-    int[] multiIndex = new int[multiCounter];
-    // keep count of index of multiIndex
-    int multiIndexCounter = 0;
+    int[] multiIndex = new int[multiTracker];
+    // keep track of index of multiIndex
+    int multiIndexTracker = 0;
     // if there is more than one maximum scores
-    if (multiCounter > 1) {
+    if (multiTracker > 1) {
       // iterate multipleMax array
-      for (int i = 0; i < multiCounter; i++) {
+      for (int i = 0; i < multiTracker; i++) {
         // index is reset to 0 per each i in multipleMax
         index = 0;
         // iterate singularScores array
@@ -220,9 +220,9 @@ public class Cfiltering {
           }
         }
         // add the index of current maximum score into first empty index
-        multiIndex[multiIndexCounter] = index;
+        multiIndex[multiIndexTracker] = index;
         // current index of multiIndex so pass the index onto the next one
-        multiIndexCounter++;
+        multiIndexTracker++;
       }
       // if there is just one maximum score
     } else {
@@ -238,7 +238,7 @@ public class Cfiltering {
         }
       }
     }
-    // this is the String representation of maximum scores
+    // this is the final String representation of maximum score
     String similarScore;
     // this is the String representation of maximum score
     String stringMax;
@@ -251,7 +251,7 @@ public class Cfiltering {
     // this is the String representation of locations of maximum scores
     String similarLocations = "";
     // if there are multiples of maximum score
-    if (multiCounter > 1) {
+    if (multiTracker > 1) {
       // iterate multiIndex array
       for (int item = 0; item < multiIndex.length; item++) {
         // for each item in multiIndex, substring(0,1) represent first user
@@ -260,9 +260,9 @@ public class Cfiltering {
             + scoreLocations[multiIndex[item]].substring(0, 1) + " and User"
             + scoreLocations[multiIndex[item]].substring(1, 2);
         // count down the number of pairs whose locations have been found
-        --multiCounter;
+        --multiTracker;
         // if this is not the last pair of users
-        if (multiCounter != 0) {
+        if (multiTracker != 0) {
           // add comma at the end of current line
           similarLocations += ",";
         }
@@ -292,8 +292,8 @@ public class Cfiltering {
     float min = 1;
     // array that stores duplicates of minimum score
     float[] multipleMin = new float[singularScores.length];
-    // keep count of multipleMin index
-    int multiCounter = 0;
+    // keep track of multipleMin index
+    int multiTracker = 0;
     // iterate singularScores array
     for (int item = 0; item < singularScores.length; item++) {
       // if current item value is less than min and not equal 0 to avoid min
@@ -308,22 +308,22 @@ public class Cfiltering {
       // if minimum number is found in singularScores
       if (singularScores[item] == min) {
         // add it to multipleMin array
-        multipleMin[multiCounter] = min;
+        multipleMin[multiTracker] = min;
         // pass the index onto the new one in multipleMin
         // this way if there is more than one minimum score, they are all added
-        multiCounter++;
+        multiTracker++;
       }
     }
     // index of minimum score in singularScores
     int index = 0;
     // array that stores multiple index in cases of multiple minimum scores
-    int[] multiIndex = new int[multiCounter];
-    // keep count of index of multiIndex
-    int multiIndexCounter = 0;
+    int[] multiIndex = new int[multiTracker];
+    // keep track of index of multiIndex
+    int multiIndexTracker = 0;
     // if there is more than one minimum scores
-    if (multiCounter > 1) {
+    if (multiTracker > 1) {
       // iterate multiIndex array
-      for (int i = 0; i < multiCounter; i++) {
+      for (int i = 0; i < multiTracker; i++) {
         // index is reset to 0 for each minimum score in multiIndex
         index = 0;
         // iterate singularScores array
@@ -339,9 +339,9 @@ public class Cfiltering {
           }
         }
         // add the index of current minimum score into first empty index
-        multiIndex[multiIndexCounter] = index;
+        multiIndex[multiIndexTracker] = index;
         // current index of multiIndex so pass the index onto the next one
-        multiIndexCounter++;
+        multiIndexTracker++;
       }
       // if there is just one minimum score
     } else {
@@ -357,7 +357,7 @@ public class Cfiltering {
         }
       }
     }
-    // this is the String representation of minimum scores
+    // this is the final String representation of minimum score
     String dissimilarScores;
     // this is the String representation of minimum score
     String stringMin;
@@ -370,7 +370,7 @@ public class Cfiltering {
     // this is the String representation of locations of minimum scores
     String dissimilarLocations = "";
     // if there are multiples of minimum score
-    if (multiCounter > 1) {
+    if (multiTracker > 1) {
       // iterate multiIndex array
       for (int item = 0; item < multiIndex.length; item++) {
         // for each item in multiIndex, substring(0,1) represent first user
@@ -379,19 +379,19 @@ public class Cfiltering {
             + scoreLocations[multiIndex[item]].substring(0, 1) + " and User"
             + scoreLocations[multiIndex[item]].substring(1, 2);
         // count down the number of pairs whose locations have been found
-        --multiCounter;
+        --multiTracker;
         // if this is not the last pair of users
-        if (multiCounter != 0) {
+        if (multiTracker != 0) {
           // add comma at the end of current line
           dissimilarLocations += ",";
         }
       }
-      // if there is just one maximum score
+      // if there is just one minimum score
     } else {
       dissimilarLocations += "\nUser" + scoreLocations[index].substring(0, 1)
           + " and User" + scoreLocations[index].substring(1, 2);
     }
-    // return the final output of the most similar score and their locations
+    // return the final output of the most dissimilar score and their locations
     return "\n\n"
         + "The most dissimilar pairs of users from above userUserMatrix are:"
         + dissimilarLocations + dissimilarScores;
