@@ -1,0 +1,434 @@
+TA: Ioanna
+email: ioanna@cs.toronto.edu
+
++++ASSIGNMENT0 MARK DETAIL+++
+Your mark out of 10 is: [  10 :/10] 
+
+
+
+PART 1) +++SVN CHECKOUT ON YOUR ASSIGNMENT0+++
+A    207Assignment0/input1.txt
+A    207Assignment0/input2.txt
+A    207Assignment0/test
+A    207Assignment0/test/input3.txt
+A    207Assignment0/test/input4.txt
+A    207Assignment0/test/input5.txt
+A    207Assignment0/test/input6.txt
+A    207Assignment0/src
+A    207Assignment0/src/driver
+A    207Assignment0/src/driver/CfilteringDriver.java
+A    207Assignment0/src/a0
+A    207Assignment0/src/a0/Cfiltering.java
+Checked out revision 33.
+
+
+
+PART 2) +++SVN COMMIT LOGS ARE+++
+------------------------------------------------------------------------
+r33 | c4namyun | 2016-02-02 11:36:02 -0500 (Tue, 02 Feb 2016) | 1 line
+
+Final revision: very minor changes; fixed the typos in comments, and changed the names of couple of variables from "counter" to "tracker" to make the code easier to read.
+------------------------------------------------------------------------
+r32 | c4namyun | 2016-02-01 19:02:28 -0500 (Mon, 01 Feb 2016) | 1 line
+
+Fifth revision: added all the comments in the methods. Everything is complete. Couldn't find ways to reduce number of lines of code without making changes that are too big for the amount of time remaining until the assignment is due. Still subject to one more revision where I will check through all the comments, javadocs, etc. before final submission.
+------------------------------------------------------------------------
+r31 | c4namyun | 2016-02-01 15:25:10 -0500 (Mon, 01 Feb 2016) | 1 line
+
+Fourth revision: VERY minor revision; deleted the extra last line. There were two; now there is just one.
+------------------------------------------------------------------------
+r30 | c4namyun | 2016-02-01 14:22:20 -0500 (Mon, 01 Feb 2016) | 1 line
+
+Fourth revision: All methods are now complete; work well with different comprehensive input tests. Input test files have been uploaded. Code still needs comments, and (if possible), code needs to be shortened; there might be lines here and there that aren't necessary.
+------------------------------------------------------------------------
+r21 | c4namyun | 2016-01-30 16:56:05 -0500 (Sat, 30 Jan 2016) | 1 line
+
+
+------------------------------------------------------------------------
+r20 | c4namyun | 2016-01-30 16:55:45 -0500 (Sat, 30 Jan 2016) | 1 line
+
+
+------------------------------------------------------------------------
+r19 | c4namyun | 2016-01-30 16:55:15 -0500 (Sat, 30 Jan 2016) | 1 line
+
+
+------------------------------------------------------------------------
+r18 | c4namyun | 2016-01-30 16:54:21 -0500 (Sat, 30 Jan 2016) | 1 line
+
+wrong upload
+------------------------------------------------------------------------
+r17 | c4namyun | 2016-01-30 16:54:10 -0500 (Sat, 30 Jan 2016) | 1 line
+
+wrong upload
+------------------------------------------------------------------------
+r16 | c4namyun | 2016-01-30 16:54:02 -0500 (Sat, 30 Jan 2016) | 1 line
+
+wrong upload
+------------------------------------------------------------------------
+r15 | c4namyun | 2016-01-30 16:53:53 -0500 (Sat, 30 Jan 2016) | 1 line
+
+wrong upload
+------------------------------------------------------------------------
+r14 | c4namyun | 2016-01-30 16:53:43 -0500 (Sat, 30 Jan 2016) | 1 line
+
+wrong upload
+------------------------------------------------------------------------
+r13 | c4namyun | 2016-01-30 16:36:29 -0500 (Sat, 30 Jan 2016) | 1 line
+
+
+------------------------------------------------------------------------
+r12 | c4namyun | 2016-01-29 20:13:10 -0500 (Fri, 29 Jan 2016) | 1 line
+
+Third revision: all methods updated; however, findAndprintMostSimilarPairofUsers() and findAndprintMostDissimilarPairOfUsers() do not pass all tests when the tests are altered. Still incomplete and requires more work. Comments to be filled in. Helper functions are added to assist with the incomplete methods.
+------------------------------------------------------------------------
+r11 | c4namyun | 2016-01-29 20:10:58 -0500 (Fri, 29 Jan 2016) | 1 line
+
+Third revision: This class is complete; no longer requires revision
+------------------------------------------------------------------------
+r10 | c4namyun | 2016-01-29 20:02:16 -0500 (Fri, 29 Jan 2016) | 1 line
+
+
+------------------------------------------------------------------------
+r9 | c4namyun | 2016-01-29 17:55:10 -0500 (Fri, 29 Jan 2016) | 1 line
+
+
+------------------------------------------------------------------------
+r8 | c4namyun | 2016-01-27 15:40:04 -0500 (Wed, 27 Jan 2016) | 1 line
+
+Second revision: removed the debugging statements; now calls the instance of calculateSimilarityScore and printUserUserMatrix methods. 
+------------------------------------------------------------------------
+r7 | c4namyun | 2016-01-27 15:05:30 -0500 (Wed, 27 Jan 2016) | 1 line
+
+Second revision: calculateSimilarityScore and printUserMatrix methods are complete; work well with input1.txt and input2.txt. Removed the function used for testing calculateSimilarityScore, because it is now redundant.
+------------------------------------------------------------------------
+r6 | c4namyun | 2016-01-27 11:37:53 -0500 (Wed, 27 Jan 2016) | 1 line
+
+First revision: Cfiltering.java methods are incomplete. Cannot implement all the methods in this file. Completed up to calling calculateSimilarityScore method in CfilteringDriver.java; also added a few lines to test the calculateSimilarityScore method.
+------------------------------------------------------------------------
+r5 | c4namyun | 2016-01-27 11:34:43 -0500 (Wed, 27 Jan 2016) | 1 line
+
+First revision: incomplete calculation method (still working on how to round the final product of userUserMatrix)
+------------------------------------------------------------------------
+r4 | attarwal | 2016-01-23 14:54:16 -0500 (Sat, 23 Jan 2016) | 1 line
+
+Starter code by instructor
+------------------------------------------------------------------------
+r3 | attarwal | 2016-01-23 14:54:15 -0500 (Sat, 23 Jan 2016) | 1 line
+
+Starter code by instructor
+------------------------------------------------------------------------
+r2 | attarwal | 2016-01-23 14:54:14 -0500 (Sat, 23 Jan 2016) | 1 line
+
+Starter code by instructor
+------------------------------------------------------------------------
+r1 | markus | 2016-01-23 13:10:33 -0500 (Sat, 23 Jan 2016) | 1 line
+
+
+------------------------------------------------------------------------
+Marks Deductions here: 
+
+
+
+PART 3) +++FOLLOWING LINES ARE GREATER THAN 80 CHARACTERS+++
+Marks Deductions here: 
+
+
+
+PART 4) +++TEST FOLDER WITH TEST FILES IN IT?+++
+------------------------------------------------------------------------
+r21 | c4namyun | 2016-01-30 16:56:05 -0500 (Sat, 30 Jan 2016) | 1 line
+
+
+------------------------------------------------------------------------
+r20 | c4namyun | 2016-01-30 16:55:45 -0500 (Sat, 30 Jan 2016) | 1 line
+
+
+------------------------------------------------------------------------
+Marks Deductions here: 
+
+
+
+PART 5) +++HONOR CODE?+++
+// **********************************************************
+// Assignment0:
+// CDF user_name: c4namyun
+// UT Student #: 999186474
+// Author: Yunho Nam
+//
+//
+// Honor Code: I pledge that this program represents my own
+// program code and that I have coded on my own. I received
+// help from no one in designing and debugging my program.
+// I have also read the plagiarism section in the course info
+// sheet of CSC 207 and understand the consequences.
+// *********************************************************
+package a0;
+Marks Deductions here: 
+
+
+
+PART 6) +++IDE FILES+++
+Marks Deductions here: 
+
+
+
+PART 7) +++STATIC FUNCTIONS IN YOUR CODE+++
+Marks Deductions here: 
+
+
+
+PART 8) +++COMMENTS IN cFiltering.java
+Marks Deductions here: 
+  // this is a 2d matrix i.e. user*movie
+  // this is a 2d matrix i.e. user*movie
+    // this is 2d matrix of size 1*1
+    // this is 2d matrix of size 1*1
+    // this is 2d matrix of size users*movies
+    // this is 2d matrix of size users*users
+    // populate the userMovieMatrix with ratingValue
+    // row number of the userUserMatrix
+    // column number of the userUserMatrix
+    // iterate row of userUserMatrix
+      // keep track of which row to iterate in the userMovieMatrix;
+      // for ever new row on userUserMatrix, it is reset to 0
+      // iterate column of userUserMatrix
+        // iterate column of userMovieMatrix
+          // algorithm for adding the result of squaring the subtraction of a
+          // number from one row to another number of another row from the same
+          // column, or itself; added to userUserMatrix[e][i], which is the
+          // current interation of the above two for loop iterations
+        // indicate the completed iteration of one row of userMovieMatrix
+        // complete the euclidean equation and acquire the similarity score
+        // assign a variable with the similarity score rounded to 4 decimmal
+        // points
+        // reassign roundMatrix to the current interation of userUserMatrix
+    // row number of the userUserMatrix
+    // column number of the userUserMatrix
+    // this is the string that represents the userUserMatrix
+    // this is a 1d array that represent a row in userUserMatrix
+    // iterate row of userUserMatrix
+      // iterate column of userUserMatrix
+        // create a new DecimalFormat object
+        // assign each item of tempArray with formatted item of current row of
+        // userUserMatrix
+      // add string conversion of tempArray for current row of userUserMatrix
+      // with \newline to print the next row on next line
+      // clear the tempArray so it can be used for the next row of
+      // userUserMatrix
+    // return the final string representation of userUserMatrix
+    // assign the returning array of helper function userSingularScores
+    // assign the returning array of helper function userScoreLocations
+    // maximum score in singularScores
+    // array to store multiples of maximum score
+    // keep track of multipleMax index
+    // iterate singularScores array
+      // if the current item of singularScores is larger than max
+        // max is assigned the current item
+      // if current item is maximum possible score 1.0
+        // add 1.0 to first empty index of multipleMax
+        // pass the index onto the next one in multipleMax
+    // if maximum score is not 1.0
+      // iterate singularScores array
+        // if a maximum score is a current item of singularScores
+          // the maximum score is added to first empty index of multipleMax
+          // pass the index onto the next one in multipleMax
+    // index of maximum score in singularScores
+    // array that stores multiple index in cases of multiple maximum scores
+    // keep track of index of multiIndex
+    // if there is more than one maximum scores
+      // iterate multipleMax array
+        // index is reset to 0 per each i in multipleMax
+        // iterate singularScores array
+          // if current item in singularScores == maximum score
+            // replace the maximum score to not repeat counting current item
+            // break iteration and set index to current item
+            // maximum score is not found so search for next index
+        // add the index of current maximum score into first empty index
+        // current index of multiIndex so pass the index onto the next one
+      // if there is just one maximum score
+      // iterate singularScores array
+        // if current item is equal maximum score
+          // break iteration and set index to current item
+          // maximum score is not found so search for next index
+    // this is the final String representation of maximum score
+    // this is the String representation of maximum score
+    // create a new DecimalFormat object
+    // format maximum score to four decimals
+    // add formatted maximum score
+    // this is the String representation of locations of maximum scores
+    // if there are multiples of maximum score
+      // iterate multiIndex array
+        // for each item in multiIndex, substring(0,1) represent first user
+        // and substring (1,0) represent second user
+        // count down the number of pairs whose locations have been found
+        // if this is not the last pair of users
+          // add comma at the end of current line
+      // if there is just one maximum score
+    // return the final output of the most similar score and their locations
+    // assign the returning array of helper function userSingularScores
+    // assign the returning array of helper function singularScoreLocations
+    // minimum score in singularScores
+    // array that stores duplicates of minimum score
+    // keep track of multipleMin index
+    // iterate singularScores array
+      // if current item value is less than min and not equal 0 to avoid min
+      // initiating an empty index in singularScores
+        // min is replaced with a new lower number
+    // iterate singularScores array
+      // if minimum number is found in singularScores
+        // add it to multipleMin array
+        // pass the index onto the new one in multipleMin
+        // this way if there is more than one minimum score, they are all added
+    // index of minimum score in singularScores
+    // array that stores multiple index in cases of multiple minimum scores
+    // keep track of index of multiIndex
+    // if there is more than one minimum scores
+      // iterate multiIndex array
+        // index is reset to 0 for each minimum score in multiIndex
+        // iterate singularScores array
+          // if current item is equal minimum score
+            // break iteration and set index to current item
+            // minimum score is not found so search for next index
+        // add the index of current minimum score into first empty index
+        // current index of multiIndex so pass the index onto the next one
+      // if there is just one minimum score
+      // iterate singularScores array
+        // if current item is equal minimum score
+          // break iteration and set index to current item
+          // minimum score is not found so search for next index
+    // this is the final String representation of minimum score
+    // this is the String representation of minimum score
+    // create a new DecimalFormat object
+    // format minimum score to four decimal points
+    // add formatted minimum score
+    // this is the String representation of locations of minimum scores
+    // if there are multiples of minimum score
+      // iterate multiIndex array
+        // for each item in multiIndex, substring(0,1) represent first user
+        // and substring (1,0) represent second user
+        // count down the number of pairs whose locations have been found
+        // if this is not the last pair of users
+          // add comma at the end of current line
+      // if there is just one minimum score
+    // return the final output of the most dissimilar score and their locations
+    // row number of the userUserMatrix
+    // column number of the userUserMatrix
+    // size of the array
+    // the array of scores
+    // tracks the array index
+    // iterate row of userUserMatrix
+      // iterate column of userUserMatrix
+        // only adds score to the array past 1.0 self score column per row
+          // current index of the array is replaced with current iterated score
+          // pass the index of the array into the next empty one
+    // return the array
+    // row number of the userUserMatrix
+    // column number of the userUserMatrix
+    // size of the array
+    // the array of locations
+    // tracks the array index
+    // iterate row of userUserMatrix
+      // iterate column of userUserMatrix
+        // only adds location to the array past 1.0 self score column per row
+          // current index of the array is replaced with current location;
+          // each location is represented as "first user" + "second user"
+              // pass the index of the array into the next empty one
+    // return the array
+
+
+
+PART 9) +++COMPILING YOUR CODE+++
+Marks Deductions here: 
+
+
+
++++RUNNING YOUR CODE+++
+PART 10) +++RUNNING TESTCASE1+++
+Marks Deductions here: 
+Enter the name of input file? 
+
+
+userUserMatrix is:
+[1.0000, 1.0000, 1.0000, 1.0000]
+[1.0000, 1.0000, 1.0000, 1.0000]
+[1.0000, 1.0000, 1.0000, 1.0000]
+[1.0000, 1.0000, 1.0000, 1.0000]
+
+
+The most similar pairs of users from above userUserMatrix are:
+User1 and User2,
+User1 and User3,
+User1 and User4,
+User2 and User3,
+User2 and User4,
+User3 and User4
+with similarity score of 1.0000
+
+
+The most dissimilar pairs of users from above userUserMatrix are:
+User1 and User2,
+User1 and User3,
+User1 and User4,
+User2 and User3,
+User2 and User4,
+User3 and User4
+with similarity score of 1.0000
+
+
+
+PART 11) +++RUNNING TESTCASE2+++
+Marks Deductions here: 
+Enter the name of input file? 
+
+
+userUserMatrix is:
+[1.0000, 1.0000, 0.1006, 0.1006]
+[1.0000, 1.0000, 0.1006, 0.1006]
+[0.1006, 0.1006, 1.0000, 1.0000]
+[0.1006, 0.1006, 1.0000, 1.0000]
+
+
+The most similar pairs of users from above userUserMatrix are:
+User1 and User2,
+User3 and User4
+with similarity score of 1.0000
+
+
+The most dissimilar pairs of users from above userUserMatrix are:
+User1 and User3,
+User1 and User4,
+User2 and User3,
+User2 and User4
+with similarity score of 0.1006
+
+
+
+PART 12) +++RUNNING TESTCASE3+++
+Marks Deductions here: 
+Enter the name of input file? 
+
+
+userUserMatrix is:
+[1.0000, 0.1082, 0.1082, 0.1082, 1.0000]
+[0.1082, 1.0000, 1.0000, 1.0000, 0.1082]
+[0.1082, 1.0000, 1.0000, 1.0000, 0.1082]
+[0.1082, 1.0000, 1.0000, 1.0000, 0.1082]
+[1.0000, 0.1082, 0.1082, 0.1082, 1.0000]
+
+
+The most similar pairs of users from above userUserMatrix are:
+User1 and User5,
+User2 and User3,
+User2 and User4,
+User3 and User4
+with similarity score of 1.0000
+
+
+The most dissimilar pairs of users from above userUserMatrix are:
+User1 and User2,
+User1 and User3,
+User1 and User4,
+User2 and User5,
+User3 and User5,
+User4 and User5
+with similarity score of 0.1082
