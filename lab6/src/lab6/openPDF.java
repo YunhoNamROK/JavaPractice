@@ -1,3 +1,5 @@
+package lab6;
+
 
 public class openPDF implements filee {
 
