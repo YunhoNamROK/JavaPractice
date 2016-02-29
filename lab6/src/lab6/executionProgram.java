@@ -30,16 +30,16 @@ public class executionProgram {
 		Hash.put("txt", "openTxt");
 		Hash.put("doc", "OpenWord");
 
-		Class x = Class.forName("openTxt");
+		//Class x = Class.forName("openTxt");
 
 		fileArray[0]= (filee) Class.forName(Hash.get("pdf")).newInstance();
 		fileArray[1]= (filee) Class.forName(Hash.get("pdf")).newInstance();
 		fileArray[2]= (filee) Class.forName(Hash.get("doc")).newInstance();
-		fileArray[3]= (filee) Class.forName(Hash.get("txt")).newInstance();
+		//fileArray[3]= (filee) Class.forName(Hash.get("txt")).newInstance();
 		fileArray[4]= (filee) Class.forName(Hash.get("pdf")).newInstance();
 		fileArray[5]= (filee) Class.forName(Hash.get("doc")).newInstance();
-		fileArray[6]= (filee) Class.forName(Hash.get("txt")).newInstance();
-		fileArray[7]= (filee) Class.forName(Hash.get("txt")).newInstance();
+		//fileArray[6]= (filee) Class.forName(Hash.get("txt")).newInstance();
+		//fileArray[7]= (filee) Class.forName(Hash.get("txt")).newInstance();
 		fileArray[8]= (filee) Class.forName(Hash.get("pdf")).newInstance();
 		fileArray[9]= (filee) Class.forName(Hash.get("doc")).newInstance();
 

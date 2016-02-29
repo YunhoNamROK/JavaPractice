@@ -1,6 +1,5 @@
 package lab6;
 
-
 public class openTxt implements filee {
 
 	@Override
