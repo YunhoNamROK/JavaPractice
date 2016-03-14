@@ -1,6 +1,5 @@
 package channelBrowser;
 
-import java.util.NavigableSet;
 import java.util.TreeMap;
 
 //Concrete Iterator 
@@ -27,13 +26,5 @@ public class ConcreteChannelIterator implements ChannelIterator {
 		currentPos++;
 		return c;
 	}
-
-  public Object[] getKeys() {
-    return keys;
-  }
-
-  public TreeMap<Float,String> getChannels() {
-    return this.channels;
-  }
 
 }
