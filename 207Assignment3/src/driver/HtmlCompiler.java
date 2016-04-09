@@ -32,13 +32,12 @@ public class HtmlCompiler extends MyParser {
       for (int i = 0; i < 5; i++){
         matcherObject.find();
       }
-      //i10Index = matcherObject.group(1);
+      i10Index = matcherObject.group(4);
       
-      String publicationExtraction = "<a class=\"cit-dark-large-link\""; //href=\"\\b(http?|ftp|file)://[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|]\">(.*?)</a>";
+      String publicationExtraction = "<a class=\"cit-dark-large-link\" href=\"(.*?)\">";
       patternObject = Pattern.compile(publicationExtraction);
       matcherObject = patternObject.matcher(htmlString);
       matcherObject.find();
-      //fivePublications.add(matcherObject.group(1));
       i10Index = matcherObject.group(1);
     } catch (Exception e) {
       System.out.println("DEBUG");
