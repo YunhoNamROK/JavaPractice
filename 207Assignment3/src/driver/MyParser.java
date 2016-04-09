@@ -1,8 +1,8 @@
 //**********************************************************
 //Assignment3:
-//CDF user_name:
+//CDF user_name: c4namyun
 //
-//Author:
+//Author: Yunho Nam
 //
 //
 //Honor Code: I pledge that this program represents my own
@@ -15,6 +15,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,7 +26,28 @@ public class MyParser {
 * @param args
 */
 public static void main(String[] args) {
- DEBUGStarterCode(args);
+
+  String input;
+  @SuppressWarnings("resource")
+  Scanner scanner = new Scanner(System.in);
+  InputParser parser = new InputParser();
+  HtmlCompiler compiler = new HtmlCompiler();
+  MyParser mParser = new MyParser();
+  
+  //DEBUGStarterCode(args);
+  while (true){
+    System.out.print("");
+    input = scanner.nextLine();
+    parser.parseInput(input);
+    ArrayList<String> htmlArray = parser.getHtml();
+    String fileName = parser.toString("file");
+    if (htmlArray != null){
+      for (int i = 0; i < htmlArray.size(); i++){
+        compiler.extractHtml(htmlArray.get(i));
+        System.out.println(compiler.toString());
+      }
+    }
+  }
 }
 
 
@@ -44,7 +67,7 @@ private static void DEBUGStarterCode(String[] args) {
 
 
  // TODO Auto-generated method stub
- String inputFiles[] = args[0].split(",");
+ String inputFiles[] = args[1].split(",");
  for (String inputFile : inputFiles) {
    DEBUGextractAuthorsName(inputFile);
  }
