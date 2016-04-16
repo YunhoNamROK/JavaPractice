@@ -1,0 +1,172 @@
+Your mark out of 10 is = 4.5
+
+This assignment has been marked by TA = Pooya Saaadatpanah
+
+The email address of the TA is = pooya@cs.toronto.edu
+
+
+
+PART 1) +++SVN CHECKOUT ON YOUR ASSIGNMENT3+++
+A    207Assignment3/sample1.html
+A    207Assignment3/sample2_files
+A    207Assignment3/sample2_files/chart
+A    207Assignment3/sample2_files/scholar_logo_md_2011.gif
+A    207Assignment3/sample2_files/green_ghost.jpg
+A    207Assignment3/sample2.html
+A    207Assignment3/src
+A    207Assignment3/src/driver
+A    207Assignment3/src/driver/MyParser.java
+A    207Assignment3/src/driver/InputParser.java
+A    207Assignment3/src/driver/HtmlCompiler.java
+A    207Assignment3/libs
+A    207Assignment3/libs/commons-lang3-3.4.jar
+A    207Assignment3/libs/commons-lang3-3.4-javadoc.jar
+A    207Assignment3/sample1_files
+A    207Assignment3/sample1_files/citations
+A    207Assignment3/sample1_files/chart
+A    207Assignment3/sample1_files/scholar_logo_md_2011.gif
+Checked out revision 59.
+
+
+
+PART 2) +++SVN COMMIT LOGS ON src+++
+------------------------------------------------------------------------
+r59 | c4namyun | 2016-04-09 15:55:13 -0400 (Sat, 09 Apr 2016) | 1 line
+
+
+------------------------------------------------------------------------
+r58 | c4namyun | 2016-04-09 04:28:06 -0400 (Sat, 09 Apr 2016) | 1 line
+
+Pattern won't match for URL no matter what I do
+------------------------------------------------------------------------
+r57 | c4namyun | 2016-04-09 04:27:38 -0400 (Sat, 09 Apr 2016) | 1 line
+
+
+------------------------------------------------------------------------
+r56 | c4namyun | 2016-04-07 16:39:35 -0400 (Thu, 07 Apr 2016) | 1 line
+
+InputParser tested and works
+------------------------------------------------------------------------
+r50 | attarwal | 2016-04-02 14:14:12 -0400 (Sat, 02 Apr 2016) | 1 line
+
+Starter code by instructor
+------------------------------------------------------------------------
+
+
+
+PART 3) +++SVN COMMIT LOGS ON test+++
+svn: '207Assignment3/src/test' is not under version control
+
+
+
+PART 4) +++HONOR CODE?+++
+//**********************************************************
+//Assignment3:
+//CDF user_name: c4namyun
+//
+//Author: Yunho Nam
+//
+//
+//Honor Code: I pledge that this program represents my own
+//program code and that I have coded on my own. I received
+//help from no one in designing and debugging my program.
+//*********************************************************
+package driver;
+
+import java.io.BufferedReader;
+Marks Deductions here: 
+
+
+
+PART 5) +++FOLLOWING LINES ARE GREATER THAN 80 CHARACTERS+++
+System.out.println("HTML argument must be surrounded with double quotes.");
+ .substring(htmlAddress.length() - 1, htmlAddress.length()).equals("\"")) 
+ String citationsExtraction = "<td class=\"cit-borderleft cit-data\">(.*?)</td>";
+ String publicationExtraction = "<a class=\"cit-dark-large-link\" href=\"(.*?)\">";
+
+
+
+PART 6) +++IDE FILES+++
+Good, you have no IDE files in your SVN repository
+
+
+
+Part 7) +++ COMPILING YOUR ASSIGNMENT +++
+Buildfile: /h/u1/attarwal/Winter2016Assignment3Marking/group_0168/207Assignment3/buildsrc.xml
+
+compile:
+    [mkdir] Created dir: /h/u1/attarwal/Winter2016Assignment3Marking/group_0168/207Assignment3/bin
+    [javac] /h/u1/attarwal/Winter2016Assignment3Marking/group_0168/207Assignment3/buildsrc.xml:10: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 3 source files to /h/u1/attarwal/Winter2016Assignment3Marking/group_0168/207Assignment3/bin
+    [javac] /h/u1/attarwal/Winter2016Assignment3Marking/group_0168/207Assignment3/src/driver/InputParser.java:4: error: package exception does not exist
+    [javac] import exception.TooManyArgException;
+    [javac]                 ^
+    [javac] /h/u1/attarwal/Winter2016Assignment3Marking/group_0168/207Assignment3/src/driver/InputParser.java:68: error: cannot find symbol
+    [javac]   private int countArgs() throws TooManyArgException {
+    [javac]                                  ^
+    [javac]   symbol:   class TooManyArgException
+    [javac]   location: class InputParser
+    [javac] /h/u1/attarwal/Winter2016Assignment3Marking/group_0168/207Assignment3/src/driver/InputParser.java:33: error: cannot find symbol
+    [javac]     } catch (TooManyArgException e) {
+    [javac]              ^
+    [javac]   symbol:   class TooManyArgException
+    [javac]   location: class InputParser
+    [javac] /h/u1/attarwal/Winter2016Assignment3Marking/group_0168/207Assignment3/src/driver/InputParser.java:78: error: cannot find symbol
+    [javac]       throw new TooManyArgException(count);
+    [javac]                 ^
+    [javac]   symbol:   class TooManyArgException
+    [javac]   location: class InputParser
+    [javac] 4 errors
+
+BUILD FAILED
+/h/u1/attarwal/Winter2016Assignment3Marking/group_0168/207Assignment3/buildsrc.xml:10: Compile failed; see the compiler error output for details.
+
+Total time: 0 seconds
+
+
+
+Part 8) +++RUNNING TEST CASE1 WITH NO OUTPUT FILE+++ with dj.html
+Error: Could not find or load main class driver.MyParser
+
+
+
+Part 9) +++RUNNING TEST CASE2 WITH NO OUTPUT FILE+++ with dj.html and rs.html
+Error: Could not find or load main class driver.MyParser
+
+
+
+Part 10) +++RUNNING TEST CASE3 WITH OUTPUT FILE+++ with dj.html and rs.html
+Error: Could not find or load main class driver.MyParser
+
+
+
+Part 11) +++ Compiling your Junit +++
+Buildfile: /h/u1/attarwal/Winter2016Assignment3Marking/group_0168/207Assignment3/buildtest.xml
+
+compile:
+    [javac] /h/u1/attarwal/Winter2016Assignment3Marking/group_0168/207Assignment3/buildtest.xml:10: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 3 source files to /h/u1/attarwal/Winter2016Assignment3Marking/group_0168/207Assignment3/bin
+    [javac] /h/u1/attarwal/Winter2016Assignment3Marking/group_0168/207Assignment3/src/driver/InputParser.java:4: error: package exception does not exist
+    [javac] import exception.TooManyArgException;
+    [javac]                 ^
+    [javac] /h/u1/attarwal/Winter2016Assignment3Marking/group_0168/207Assignment3/src/driver/InputParser.java:68: error: cannot find symbol
+    [javac]   private int countArgs() throws TooManyArgException {
+    [javac]                                  ^
+    [javac]   symbol:   class TooManyArgException
+    [javac]   location: class InputParser
+    [javac] /h/u1/attarwal/Winter2016Assignment3Marking/group_0168/207Assignment3/src/driver/InputParser.java:33: error: cannot find symbol
+    [javac]     } catch (TooManyArgException e) {
+    [javac]              ^
+    [javac]   symbol:   class TooManyArgException
+    [javac]   location: class InputParser
+    [javac] /h/u1/attarwal/Winter2016Assignment3Marking/group_0168/207Assignment3/src/driver/InputParser.java:78: error: cannot find symbol
+    [javac]       throw new TooManyArgException(count);
+    [javac]                 ^
+    [javac]   symbol:   class TooManyArgException
+    [javac]   location: class InputParser
+    [javac] 4 errors
+
+BUILD FAILED
+/h/u1/attarwal/Winter2016Assignment3Marking/group_0168/207Assignment3/buildtest.xml:10: Compile failed; see the compiler error output for details.
+
+Total time: 0 seconds
